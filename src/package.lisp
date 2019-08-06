@@ -65,7 +65,7 @@ If the values are NIL,NIL , it means the type is not successfully inferred."
                         (format t "~& ~<expanded ~a with rule ~a -> ~_~{~a~^, ~:_~}~:>" (list now key successors)))
                       (unionf open (set-difference successors closed :test #'equal)
                               :test #'equal)))))
-               *INFERENCE-RULES-TABLE*))))
+               *inference-rules-table*))))
 
 (defun type-tests (type &optional verbose)
   (let (closed)
@@ -79,7 +79,7 @@ If the values are NIL,NIL , it means the type is not successfully inferred."
                      (format t "~& ~<expanded ~a with rule ~a -> ~_~{~a~^, ~:_~}~:>" (list now key successors)))
                    (unionf open (set-difference successors closed :test #'equal)
                            :test #'equal)))
-               *INFERENCE-RULES-TABLE*))))
+               *inference-rules-table*))))
 
 
 

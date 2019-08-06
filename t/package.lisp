@@ -24,20 +24,20 @@
 
   (is-false (member '(eql t) (type-tests t) :test #'equal))
 
-  (is (type= T (test-type T)))
+  (is (type= t (test-type t)))
 
 
-  (is (subset '((TYPEP ? 'FIXNUM)) (type-tests 'fixnum)))
+  (is (subset '((typep ? 'fixnum)) (type-tests 'fixnum)))
 
-  (is (subset '((TYPEP ? 'integer)
+  (is (subset '((typep ? 'integer)
                 (integerp ?))
               (type-tests 'integer)))
 
   ;; more inference on integers, e.g., (< 0 ? 4), should be added
-  (is (subset '((TYPEP ? '(mod 5))
-                (TYPEP ? '(integer 0 4)))
+  (is (subset '((typep ? '(mod 5))
+                (typep ? '(integer 0 4)))
               (type-tests '(mod 5))))
-  (is (not (subset '((INTEGERP ?))
+  (is (not (subset '((integerp ?))
                    (type-tests '(mod 5)))))
 
   (is (type= '(integer 0 5)
